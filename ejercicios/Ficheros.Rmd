@@ -1,0 +1,85 @@
+---
+title: "Data frames"
+author: "Paulina Luna"
+date: "4/9/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Uso de Dataframes
+
+Uso del archivo medals.csv:
+
+```{r}
+df1 = read.csv("http://winterolympicsmedals.com/medals.csv", header = TRUE)
+str(df1)
+```
+
+
+### Pregunta 1
+
+¿Cuantos deportistas aparecen en el data frame?
+
+```{r}
+nrow(df1)
+```
+```{r}
+dim(df1)[1]
+```
+
+### Pregunta 2
+
+¿Cuantos han ganado medallas de oro, cuantos de plata y cuantos de bronce?
+
+```{r}
+nrow(subset(df1, df1$Medal == "Gold"))
+nrow(subset(df1, df1$Medal == "Silver"))
+nrow(subset(df1, df1$Medal == "Bronze"))
+```
+
+### Pregunta 3
+
+¿En cuantos lugares se han hecho olimpiadas de invierno?
+
+```{r}
+length(unique(as.factor(df1$City)))
+```
+
+
+### Pregunta 4
+
+¿Cuantos hombres y cuantas mujeres hay?
+
+```{r}
+nrow(subset(df1, df1$Event.gender == "M"))
+nrow(subset(df1, df1$Event.gender == "W"))
+```
+
+### Pregunta 5
+
+¿En qué año participaron más deportistas?
+
+```{r}
+library(dplyr)
+
+df2 <- df1 %>% group_by(Year) %>% tally()
+year <- subset(df2, df2$n== max(df2$n))
+year
+
+```
+
+
+### Pregunta 6
+
+El campo NOC indica el país del ganador de la medalla. ¿Qué país puede presumir de haber ganado más medallas de oro en los juegos de invierno entre 1960 y 1996?
+
+```{r}
+dfanio = subset(df1, df1$Year<=1996 & df1$Year>=1960 & df1$Medal == "Gold") %>% group_by(NOC) %>% tally()
+NOC <- subset(dfanio, dfanio$n== max(dfanio$n))
+NOC
+```
+

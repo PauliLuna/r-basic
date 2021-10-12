@@ -1,7 +1,7 @@
 ---
 title: "Ejercicios sobre LaTeX, R y Markdown"
-author: "Juan Gabriel Gomila & María Santos"
-date: "30/12/2018"
+author: "Paulina Luna"
+date: "04/08/2021"
 output: pdf_document
 ---
 
@@ -35,7 +35,9 @@ $$A = \begin{pmatrix}1 & 2 & 3 & 4\\ 4 & 3 & 2 & 1\\ 0 & 1 & 0 & 2\\ 3 & 0 & 4 &
 
 Finalmente, escribe haciendo uso de \LaTeX\  el resultado de los dos primeros productos de forma adecuada.
 
-```{r, echo = FALSE, eval = FALSE}
+# Respuesta:
+
+```{r, echo = TRUE, eval = TRUE}
 A = cbind(c(1,4,0,3),c(2,3,1,0),c(3,2,0,4),c(4,1,2,0))
 B = cbind(c(4,0,1,0),c(3,3,2,1),c(2,0,3,0),c(1,4,4,2))
 A%*%B
@@ -46,6 +48,12 @@ solve(A%*%B)
 solve(A)%*%t(B)
 ```
 
+
+$$A\cdot B= \begin{pmatrix}7 & 19 & 11 & 29\\ 18 & 26 & 14 & 26\\ 0 & 5 & 0 & 8\\ 16 & 17 & 18 & 19\end{pmatrix}$$
+$$B\cdot A = \begin{pmatrix}19 & 19 & 22 & 23\\ 24 & 9 & 22 & 3\\ 21 & 11 & 23 & 12\\ 10 & 3 & 10 & 1\end{pmatrix}$$
+
+
+
 ## Pregunta 2
 
 Considerad en un vector los números de vuestro DNI y llamadlo `dni`. Por ejemplo, si vuestro DNI es 54201567K, vuestro vector será $$dni = (5,4,2,0,1,5,6,7)$$.
@@ -54,11 +62,42 @@ Definid el vector en `R`. Calculad con `R` el vector `dni` al cuadrado, la raíz
 
 Finalmente, escribid todos estos vectores también a \LaTeX
 
+# Respuesta:
+
+```{r echo=TRUE, eval=TRUE}
+dni = c(5,4,2,0,1,5,6,7)
+dni^2
+sqrt(dni)
+sum(dni)
+```
+$$dni^2 = (5,4,2,0,1,5,6,7)^2 = (25, 16,  4,  0,  1, 25, 36, 49)$$
+$$\sqrt{dni} = \sqrt{(5,4,2,0,1,5,6,7)} = (2.236068, 2.000000, 1.414214, 0.000000, 1.000000, 2.236068, 2.449490, 2.645751) $$
+$$\sum_{i=1}^{8} dni= 30 $$
+
+
 ## Pregunta 3
 
-Considerad el vector de las letras de vuestro nombre y apellido. Llamadlo `name`. Por ejemplo, en mi caso sería $$nombre = (M,A,R,I,A,S,A,N,T,O,S)$$.
+Considerad el vector de las letras de vuestro nombre y apellido. Llamadlo `name`. Por ejemplo, en mi caso sería $$nombre = (P,A,U,L,I,N,A,L,U,N,A)$$.
 
 Definid dicho vector en `R`. Calculad el subvector que solo contenga vuestro nombre. Calculad también el subvector que contenga solo vuestro apellido.
 Ordenadlo alfabéticamente. Cread una matriz con este vector.
 
-Redactad todos vuestros resultados y utilizad \LaTeX\   cuando pertoque
+Redactad todos vuestros resultados y utilizad \LaTeX\   cuando pertoque.
+
+# Respuesta:
+
+```{r echo=TRUE, eval=TRUE}
+nombre = c("P","A","U","L","I","N","A","L","U","N","A")
+nom = nombre[1:7]
+nom
+ape = nombre[8:length(nombre)]
+ape
+sort(ape)
+matrix(ape)
+```
+$$nombre =("P","A","U","L","I","N","A","L","U","N","A")$$
+$$nom= ("P", "A", "U", "L", "I", "N", "A")$$
+$$ape =("L", "U", "N", "A")$$
+$$("A", "L", "N", "U")$$
+$$Matriz = \begin{pmatrix}"L"\\ "U"\\ "N"\\ "A"\end{pmatrix}$$$
+

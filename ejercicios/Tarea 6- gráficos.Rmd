@@ -1,0 +1,18 @@
+---
+title: "Tarea 6. Gráficos"
+author: "Paulina Luna"
+date: "19/8/2021"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tarea 6
+
+##Ejercicio 1
+Con una sola instrucción, dibujad el gráfico de la función y=x^2−3x+30 entre −15 y 15. De título, poned “Una parábola”. De etiquetas, en el eje 0X poned, en formato matemático, "x"; y en el eje 0Y, introducid $y=x^2−3x+30$, también en formato matemático. Tenéis que utilizar la función curve()
+

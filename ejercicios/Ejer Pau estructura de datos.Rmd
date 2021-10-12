@@ -1,0 +1,102 @@
+---
+title: "Ejercicio subvectores y filtros"
+author: "Paulina Luna"
+date: "29/7/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Ejercicios Estructura de datos R (Pau)
+
+EJERCICIO 1.
+```{r}
+Harry = c(-10:27)
+Harry[7]
+```
+
+
+EJERCICIO 2.
+```{r}
+max(100*2**c(0:200)-7*3**c(0:200))
+```
+
+
+EJERCICIO 3.
+```{r}
+n = c(0:40)
+x = 3*5**n -1
+x[x>3.5]
+```
+
+
+EJERCICIO 4.
+```{r}
+ejer4 = function(nro){
+  print(c(Re(nro), Im(nro), Mod(x), Arg(nro), Conj(nro)),2)
+}
+ejer4(1+1i)
+```
+
+EJERCICIO 5.
+```{r}
+segundo = function(a,b,c){
+  x1 <- (-b + sqrt((b^2) - (4 * a * c)))/(2 * a)
+  x2 <- (-b - sqrt((b^2) - (4 * a * c)))/(2 * a)
+  print(c(x1, x2))
+}
+```
+
+EJERCICIO 6.
+```{r}
+vec = c(0,9,98,2,6,7,5,19,88,20,16,0)
+
+subv1 = vec[which(vec==9 | vec==19 | vec==20 | vec==16)]
+subv2 = vec[which(vec>=9 & vec<=20)]
+subv3 = vec[which(!(vec<9 | vec>20))]
+
+which(vec%%2==0)
+which( (vec%%2!=0) & (vec>20) )
+which.max(vec)
+which(vec==min(vec))
+```
+
+EJERCICIO 7.
+```{r}
+A = matrix(1:4, ncol = 2)
+A*(A+A)*A
+```
+
+EJERCICIO 8.
+```{r}
+B = rbind(c(2,4,-6), c(0,0,3), c(0,-2,5))
+eigen(B)$values
+```
+
+EJERCICIO 9.
+```{r}
+C = rbind(c(-48, 35, -12), c(-134,95,-32), c(-194,133,-44))
+round(eigen(C)$vectors,3)
+```
+
+
+EJERCICIO 10.
+```{r}
+D = rbind(c(-2,-8,-2, 3), c(-3,-6, -1, 2), c(-9, -22, -3, 7), c(-18, -44, -8, 15))
+qr(D)$rank
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

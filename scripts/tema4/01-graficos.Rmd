@@ -2,7 +2,9 @@
 title: "Graficos"
 author: "Curso de Estadística Descriptiva"
 date: "22/12/2018"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -32,13 +34,13 @@ plot(f)
 
 ## Parámetros
 
-```{r, echo=FALSE, fig.align='center'}
+```{r, echo=TRUE, fig.align='center'}
 n = 1:20
 fib = (1/sqrt(5))*((1+sqrt(5))/2)^n - (1/sqrt(5))*((1-sqrt(5))/2)^n
 fib
 par(mfrow = c(1,2))
 plot(fib, xlab = "n", ylab = expression(F[n]),
-     main = "Sucesión de Fibonacci", pch = 21, cex = 2,
+     main = "Sucesión de Fibonacci", pch = 8, cex = 2,
      col = "powderblue", bg = "orchid", log = "xy")
 
 plot(fib, xlab = "n", ylab = expression(F[n]),
@@ -73,6 +75,7 @@ abline(h = 5, lty = "dotdash", col = "gray")
 f <- function(x){x^2}
 plot(f, xlim = c(-3,3), col = "red", lwd = 2, ylab = expression(y^2), xlab = "x")
 abline(h=0:9, v = -3:3, lty="dotted", col = "grey")
+arrows(10,0,40,-10, col="blue", length =0.5, angle=5, code=3)
 ```
 
 ```{r}
